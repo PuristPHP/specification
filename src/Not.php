@@ -1,28 +1,18 @@
 <?php
 
-namespace Rb\Specification;
+namespace Purist\Specification;
 
-/**
- */
-class Not extends CompositeSpecification
+readonly final class Not extends CompositeSpecification
 {
-    /**
-     * @var SpecificationInterface
-     */
-    protected $wrapped;
-
-    /**
-     * @param SpecificationInterface $x
-     */
-    public function __construct(SpecificationInterface $x)
+    public function __construct(private SpecificationInterface $wrapped)
     {
-        $this->wrapped = $x;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isSatisfiedBy($value)
+    #[\Override]
+    public function isSatisfiedBy(mixed $value): bool
     {
         return !$this->wrapped->isSatisfiedBy($value);
     }

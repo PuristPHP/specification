@@ -1,10 +1,14 @@
 {
-  "name": "rikbruil/specification",
+  "name": "purist/specification",
   "description": "A PHP implementation of the Specification-pattern",
   "type": "library",
   "keywords": ["specification", "pattern"],
   "license": "MIT",
   "authors": [
+    {
+      "name": "Nicholas Ruunu",
+      "email": "nicholas@ruu.nu"
+    },
     {
       "name": "Rik Bruil",
       "email": "rik.bruil@gmail.com"
@@ -12,19 +16,17 @@
   ],
   "minimum-stability": "stable",
   "autoload": {
-    "psr-4": {"Rb\\Specification\\": "src/"}
+    "psr-4": {"Purist\\Specification\\": "src/"}
   },
   "autoload-dev": {
-    "psr-4": {"spec\\Rb\\Specification\\": "spec/"}
+    "psr-4": {"spec\\Purist\\Specification\\": "spec/"}
   },
   "require": {
-    "php": ">=5.3.3"
+    "php": "^8.2"
   },
   "require-dev": {
-    "phpspec/phpspec": "~2.1@dev",
-    "henrikbjorn/phpspec-code-coverage": "~1.0",
-    "satooshi/php-coveralls": "~0.6",
-    "fabpot/php-cs-fixer": "~1.5"
+    "phpspec/phpspec": "^7.5",
+    "rector/rector": "^1.1"
   },
   "extra": {
     "branch-alias": {

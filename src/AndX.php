@@ -1,35 +1,18 @@
 <?php
 
-namespace Rb\Specification;
+namespace Purist\Specification;
 
-/**
- */
-class AndX extends CompositeSpecification
+readonly final class AndX extends CompositeSpecification
 {
-    /**
-     * @var SpecificationInterface
-     */
-    protected $x;
-
-    /**
-     * @var SpecificationInterface
-     */
-    protected $y;
-
-    /**
-     * @param SpecificationInterface $x
-     * @param SpecificationInterface $y
-     */
-    public function __construct(SpecificationInterface $x, SpecificationInterface $y)
+    public function __construct(private SpecificationInterface $x, private SpecificationInterface $y)
     {
-        $this->x = $x;
-        $this->y = $y;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isSatisfiedBy($value)
+    #[\Override]
+    public function isSatisfiedBy(mixed $value): bool
     {
         return $this->x->isSatisfiedBy($value) && $this->y->isSatisfiedBy($value);
     }

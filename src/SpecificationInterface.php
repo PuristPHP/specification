@@ -1,17 +1,11 @@
 <?php
 
-namespace Rb\Specification;
+namespace Purist\Specification;
 
-/**
- */
 interface SpecificationInterface
 {
     /**
-     * Returns a boolean indicating whether or not this specification can support the given value.
-     *
-     * @param mixed $value
-     *
-     * @return bool
+     * Returns a boolean indicating whether this specification can support the given value.
      */
-    public function isSatisfiedBy($value);
+    public function isSatisfiedBy(mixed $value): bool;
 }

@@ -1,31 +1,23 @@
 <?php
 
-namespace Rb\Specification;
+namespace Purist\Specification;
 
-/**
- */
-abstract class CompositeSpecification implements CompositeSpecificationInterface
+readonly abstract class CompositeSpecification implements CompositeSpecificationInterface
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function andX(SpecificationInterface $specification)
+    #[\Override]
+    public function andX(SpecificationInterface $specification): AndX
     {
         return new AndX($this, $specification);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function orX(SpecificationInterface $specification)
+    #[\Override]
+    public function orX(SpecificationInterface $specification): OrX
     {
         return new OrX($this, $specification);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function not(SpecificationInterface $specification)
+    #[\Override]
+    public function not(SpecificationInterface $specification): Not
     {
         return new Not($specification);
     }

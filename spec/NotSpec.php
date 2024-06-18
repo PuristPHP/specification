@@ -1,24 +1,24 @@
 <?php
 
-namespace spec\Rb\Specification;
+namespace spec\Purist\Specification;
 
 use PhpSpec\ObjectBehavior;
-use Rb\Specification\CompositeSpecification;
-use Rb\Specification\Not;
-use Rb\Specification\SpecificationInterface;
+use Purist\Specification\CompositeSpecification;
+use Purist\Specification\Not;
+use Purist\Specification\SpecificationInterface;
 
 class NotSpec extends ObjectBehavior
 {
-    public function it_should_have_correct_types(SpecificationInterface $specification)
+    public function it_should_have_correct_types(SpecificationInterface $specification): void
     {
         $this->beConstructedWith($specification);
 
-        $this->shouldHaveType('Rb\Specification\Not');
-        $this->shouldHaveType('Rb\Specification\SpecificationInterface');
-        $this->shouldHaveType('Rb\Specification\CompositeSpecification');
+        $this->shouldHaveType(\Purist\Specification\Not::class);
+        $this->shouldHaveType(\Purist\Specification\SpecificationInterface::class);
+        $this->shouldHaveType(\Purist\Specification\CompositeSpecification::class);
     }
 
-    public function it_should_pass_if_child_fails(SpecificationInterface $specification)
+    public function it_should_pass_if_child_fails(SpecificationInterface $specification): void
     {
         $className = 'foo';
         $this->beConstructedWith($specification);

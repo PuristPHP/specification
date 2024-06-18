@@ -1,29 +1,12 @@
 <?php
 
-namespace Rb\Specification;
+namespace Purist\Specification;
 
-/**
- */
 interface CompositeSpecificationInterface extends SpecificationInterface
 {
-    /**
-     * @param SpecificationInterface $specification
-     *
-     * @return AndX
-     */
-    public function andX(SpecificationInterface $specification);
+    public function andX(SpecificationInterface $specification): AndX;
 
-    /**
-     * @param SpecificationInterface $specification
-     *
-     * @return OrX
-     */
-    public function orX(SpecificationInterface $specification);
+    public function orX(SpecificationInterface $specification): OrX;
 
-    /**
-     * @param SpecificationInterface $specification
-     *
-     * @return Not
-     */
-    public function not(SpecificationInterface $specification);
+    public function not(SpecificationInterface $specification): Not;
 }

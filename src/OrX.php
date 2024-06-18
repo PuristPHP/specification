@@ -1,15 +1,18 @@
 <?php
 
-namespace Rb\Specification;
+namespace Purist\Specification;
 
-/**
- */
-class OrX extends AndX
+readonly final class OrX extends CompositeSpecification
 {
+    public function __construct(private SpecificationInterface $x, private SpecificationInterface $y)
+    {
+    }
+
     /**
      * {@inheritDoc}
      */
-    public function isSatisfiedBy($value)
+    #[\Override]
+    public function isSatisfiedBy(mixed $value) : bool
     {
         return $this->x->isSatisfiedBy($value) || $this->y->isSatisfiedBy($value);
     }

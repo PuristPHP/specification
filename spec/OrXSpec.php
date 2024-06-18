@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Rb\Specification;
+namespace spec\Purist\Specification;
 
 use PhpSpec\ObjectBehavior;
-use Rb\Specification\SpecificationInterface;
+use Purist\Specification\SpecificationInterface;
 
 class OrXSpec extends ObjectBehavior
 {
-    public function it_should_pass_if_one_child_fails(SpecificationInterface $specificationA, SpecificationInterface $specificationB)
+    public function it_should_pass_if_one_child_fails(SpecificationInterface $specificationA, SpecificationInterface $specificationB): void
     {
         $className = 'foo';
         $this->beConstructedWith($specificationA, $specificationB);
@@ -18,7 +18,7 @@ class OrXSpec extends ObjectBehavior
         $this->isSatisfiedBy($className)->shouldReturn(true);
     }
 
-    public function it_should_pass_if_both_children_pass(SpecificationInterface $specificationA, SpecificationInterface $specificationB)
+    public function it_should_pass_if_both_children_pass(SpecificationInterface $specificationA, SpecificationInterface $specificationB): void
     {
         $className = 'foo';
         $this->beConstructedWith($specificationA, $specificationB);
@@ -29,7 +29,7 @@ class OrXSpec extends ObjectBehavior
         $this->isSatisfiedBy($className)->shouldReturn(true);
     }
 
-    public function it_should_fail_if_both_children_fail(SpecificationInterface $specificationA, SpecificationInterface $specificationB)
+    public function it_should_fail_if_both_children_fail(SpecificationInterface $specificationA, SpecificationInterface $specificationB): void
     {
         $className = 'foo';
         $this->beConstructedWith($specificationA, $specificationB);

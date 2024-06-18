@@ -1,4 +1,4 @@
-# Specification 
+# Specification
 [![Build Status](https://travis-ci.org/rikbruil/specification.svg)](https://travis-ci.org/rikbruil/specification)
 [![Coverage Status](https://coveralls.io/repos/rikbruil/specification/badge.svg?branch=master)](https://coveralls.io/r/rikbruil/specification?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/rikbruil/specification/v/stable.svg)](https://packagist.org/packages/rikbruil/specification)
@@ -13,23 +13,23 @@ PHP implementation of the [Specification pattern][specification_pattern]
 $overDue        = new OverDueSpecification();
 $noticeSent     = new NoticeSentSpecification();
 $inCollection   = new InCollectionSpecification();
- 
+
 // example of specification pattern logic chaining
 $sendToCollection = $overDue->andX($noticeSent)
                             ->not($inCollection);
- 
+
 foreach ($service->getInvoices() as $currentInvoice) {
     if (! $sendToCollection->isSatisfiedBy($currentInvoice)) {
         continue;
     }
-    
+
     $currentInvoice->sendToCollection();
 }
 ```
 
 ## Requirements
 
-- PHP 5.3+
+- PHP 8.2+
 
 ## License
 
