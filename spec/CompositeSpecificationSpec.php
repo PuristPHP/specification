@@ -18,7 +18,7 @@ class CompositeSpecificationSpec extends ObjectBehavior
 
     public function it_is_initializable(): void
     {
-        $this->shouldHaveType(\Purist\Specification\CompositeSpecification::class);
+        $this->shouldHaveType(CompositeSpecification::class);
     }
 
     public function it_should_return_and_specification(SpecificationInterface $specification): void
@@ -26,7 +26,7 @@ class CompositeSpecificationSpec extends ObjectBehavior
         $specification->isSatisfiedBy('foo')->willReturn(true);
 
         $and = $this->andX($specification);
-        $and->shouldHaveType(\Purist\Specification\AndX::class);
+        $and->shouldHaveType(AndX::class);
         $and->isSatisfiedBy('foo')->shouldReturn(true);
     }
 
@@ -35,7 +35,7 @@ class CompositeSpecificationSpec extends ObjectBehavior
         $specification->isSatisfiedBy('foo')->willReturn(false);
 
         $or = $this->orX($specification);
-        $or->shouldHaveType(\Purist\Specification\OrX::class);
+        $or->shouldHaveType(OrX::class);
         $or->isSatisfiedBy('foo')->shouldReturn(true);
     }
 
@@ -44,19 +44,16 @@ class CompositeSpecificationSpec extends ObjectBehavior
         $specification->isSatisfiedBy('foo')->willReturn(true);
 
         $not = $this->not($specification);
-        $not->shouldHaveType(\Purist\Specification\Not::class);
+        $not->shouldHaveType(Not::class);
         $not->isSatisfiedBy('foo')->shouldReturn(false);
     }
 }
 
 readonly class DummySpec extends CompositeSpecification
 {
-    /**
-     * {@inheritDoc}
-     */
     #[\Override]
     public function isSatisfiedBy($value): bool
     {
-        return $value === 'foo';
+        return 'foo' === $value;
     }
 }
