@@ -2,7 +2,7 @@
 
 namespace Purist\Specification;
 
-readonly abstract class CompositeSpecification implements CompositeSpecificationInterface
+abstract readonly class CompositeSpecification implements CompositeSpecificationInterface
 {
     #[\Override]
     public function andX(SpecificationInterface $specification): AndX

@@ -1,16 +1,14 @@
 <?php
 
 use Rector\Config\RectorConfig;
-use Rector\Doctrine\Set\DoctrineSetList;
-use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
 
 return RectorConfig::configure()->withPaths([
-        __DIR__ . '/src',
-        __DIR__ . '/spec',
-    ])->withPhpSets(php83: true)->withAttributesSets(
-        symfony: true,
-        doctrine: true,
-    )
+    __DIR__.'/src',
+    __DIR__.'/spec',
+])->withPhpSets(php83: true)->withAttributesSets(
+    symfony: true,
+    doctrine: true,
+)
     // here we can define, what prepared sets of rules will be applied
     ->withPreparedSets(
         deadCode: true,
