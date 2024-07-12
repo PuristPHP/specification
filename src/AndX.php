@@ -2,15 +2,12 @@
 
 namespace Purist\Specification;
 
-readonly final class AndX extends CompositeSpecification
+final readonly class AndX extends CompositeSpecification
 {
     public function __construct(private SpecificationInterface $x, private SpecificationInterface $y)
     {
     }
 
-    /**
-     * {@inheritDoc}
-     */
     #[\Override]
     public function isSatisfiedBy(mixed $value): bool
     {

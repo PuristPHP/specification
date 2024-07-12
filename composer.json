@@ -8,10 +8,6 @@
     {
       "name": "Nicholas Ruunu",
       "email": "nicholas@ruu.nu"
-    },
-    {
-      "name": "Rik Bruil",
-      "email": "rik.bruil@gmail.com"
     }
   ],
   "minimum-stability": "stable",
@@ -26,7 +22,9 @@
   },
   "require-dev": {
     "phpspec/phpspec": "^7.5",
-    "rector/rector": "^1.1"
+    "rector/rector": "^1.1",
+    "phpstan/phpstan": "^1.11",
+    "friendsofphp/php-cs-fixer": "^3.59"
   },
   "extra": {
     "branch-alias": {
@@ -35,6 +33,7 @@
   },
   "scripts": {
     "test": "vendor/bin/phpspec run",
+    "static-analyzer": "vendor/bin/phpstan",
     "fix-style": "vendor/bin/php-cs-fixer fix"
   }
 }
